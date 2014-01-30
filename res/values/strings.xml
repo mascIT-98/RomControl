@@ -4,7 +4,6 @@
     <string name="app_name">RomControl</string>
     <string name="changelog">Changelog 18/01/2014</string>
     <string name="crt_animation">CRT anim</string>
-    <string name="ok">OK</string>
     <string name="statusbar_scroll">Quickpanel auto Scrolling</string>
     <string name="log">Logger</string>
     <string name="fsync">Fsync</string>

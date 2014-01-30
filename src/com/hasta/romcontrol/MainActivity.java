@@ -12,11 +12,9 @@ package com.hasta.romcontrol;
 import java.io.File;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -197,18 +195,6 @@ public class MainActivity extends Activity {
 	        }
 	    }
 		
-		
-		public void showDialog(String title, String msg) {
-	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-	        builder.setTitle(title);
-	        builder.setMessage(msg);
-	        builder.setCancelable(false);
-	        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int id) {}
-	        });
-	        AlertDialog dialog = builder.create();
-	        dialog.show();
-	    }
 		
 		 public void ShowToast(String msg) {
 		        Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
