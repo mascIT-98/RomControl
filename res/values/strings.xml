@@ -2,10 +2,16 @@
 <resources>
 
     <string name="app_name">RomControl</string>
-    <string name="changelog">Changelog 18/01/2014</string>
+    <string name="changelog">Changelogs</string>
     <string name="crt_animation">CRT anim</string>
-    <string name="statusbar_scroll">Quickpanel auto Scrolling</string>
     <string name="log">Logger</string>
     <string name="fsync">Fsync</string>
-    <string name="statusbar_scroll_sum">Automatically scrolls quickpanel toggle upon expanding statusbar</string>
+    <string name="about">About</string>
+    <string name="cpu_tweaks">CPU tweaks</string>
+    <string name="bat_tweaks">Battery tweaks</string>
+    <string name="perf_tweaks">Performance tweaks</string>
+    <string name="sd_tweaks">SD tweaks</string>
+    <string name="net_tweaks">Internet tweaks</string>
+    <string name="vac_tweaks">Vacuuming</string>
+    <string name="log1">CHANGELOG 30/01/2014 \n\n-CRT-OFF effect \n-white icons \n-centered clock \n-change track by vol buttons \n-added many tweaks \n-performance improved"</string>
 </resources>
