@@ -1,0 +1,3 @@
+#!/system/bin/sh
+
+echo 1 > /sys/kernel/fsync/mode

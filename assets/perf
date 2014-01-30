@@ -1,0 +1,49 @@
+#!system/bin/sh
+
+#Removes Journalism
+tune2fs -o journal_data_writeback /block/path/to/system
+tune2fs -O ^has_journal /block/path/to/system
+tune2fs -o journal_data_writeback /block/path/to/cache
+tune2fs -O ^has_journal /block/path/to/cache
+tune2fs -o journal_data_writeback /block/path/to/data
+tune2fs -O ^has_journal /block/path/to/data
+
+#Performance
+echo "524288" > /proc/sys/fs/file-max;
+echo "500,512000,64,2048" > /proc/sys/kernel/sem;
+echo "268435456" > /proc/sys/kernel/shmmax;
+echo "2097152" > /proc/sys/kernel/shmall;
+echo "4096" > /proc/sys/kernel/shmmni;
+echo "2048" > /proc/sys/kernel/msgmni;
+echo "64000" > /proc/sys/kernel/msgmax;
+echo "10" > /proc/sys/kernel/panic;
+echo "0" > /proc/sys/kernel/panic_on_oops;
+echo "524288" > /proc/sys/kernel/threads-max;
+echo "10" > /proc/sys/fs/lease-break-time;
+echo "4000" > /proc/sys/vm/dirty_expire_centisecs;
+echo "5000" > /proc/sys/vm/dirty_writeback_centisecs;
+echo "0" > /proc/sys/vm/oom_kill_allocating_task;
+echo "0" > /proc/sys/vm/panic_on_oom;
+echo "100" > /proc/sys/vm/dirty_background_ratio;
+echo "100" > /proc/sys/vm/dirty_ratio;
+echo "10" > /proc/sys/vm/vfs_cache_pressure;
+echo "1" > /proc/sys/vm/overcommit_memory;
+echo "4" > /proc/sys/vm/min_free_order_shift;
+echo "0" > /proc/sys/vm/block_dump;
+echo "1" > /proc/sys/vm/oom_dump_tasks;
+echo "3" > /proc/sys/vm/page-cluster;
+echo "48" > /sys/module/mali/parameters/mali_l2_max_reads;
+echo "256" > /proc/sys/kernel/random/write_wakeup_threshold;
+echo "256" > /proc/sys/kernel/random/read_wakeup_threshold;
+
+#disable io stats
+if [ -e /queue/iostats ]; then
+echo "0" > /queue/iostats;
+fi;  
+
+### Ext4 File-Systems optimization & instant-mount
+busybox mount -o remount,noatime,noauto_da_alloc,nodiratime,barrier =0,nobh /system
+
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodir atime,barrier=0,nobh /data
+
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodir atime,barrier=0,nobh /cache

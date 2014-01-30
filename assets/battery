@@ -1,0 +1,10 @@
+#!system/bin/sh
+
+#Battery
+echo "400" > /sys/kernel/abb-charger/max_ac_c;
+echo "600" > /sys/kernel/abb-charger/max_usb_c;
+echo "0" > /proc/sys/vm/laptop_mode;
+echo "4" > /d/cpuidle/deepest_state;
+echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features;
+echo NO_GENTLE_FAIR_SLEEPERS > /sys/kernel/debug/sched_features;
+echo NO_NEW_FAIR_SLEEPERS > /sys/kernel/debug/sched_features;

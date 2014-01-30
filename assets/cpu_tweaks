@@ -1,0 +1,23 @@
+#!system/bin/sh
+
+#cpu
+echo "pegasusq" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor;
+echo "pegasusq" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor;
+echo "sio" > /sys/block/mmcblk0/queue/scheduler;
+echo "80" > /sys/devices/system/cpu/cpufreq/pegasusq/up_threshold;
+echo "40" > /sys/devices/system/cpu/cpufreq/pegasusq/up_threshold_at_min_freq;
+echo "40000" > /sys/devices/system/cpu/cpufreq/pegasusq/sampling_rate;
+echo "2" > /sys/devices/system/cpu/cpufreq/pegasusq/sampling_down_factor;
+echo "5" > /sys/devices/system/cpu/cpufreq/pegasusq/down_differential;
+echo "40" > /sys/devices/system/cpu/cpufreq/pegasusq/freq_step;
+echo "200000" > /sys/devices/system/cpu/cpufreq/pegasusq/freq_for_responsiveness;
+echo "10" > /sys/devices/system/cpu/cpufreq/pegasusq/cpu_up_rate;
+echo "20" > /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_rate;
+echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_1_1;
+echo "300000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_0;
+echo "300" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_1_1;
+echo "200" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_0;
+echo "0" > /sys/devices/system/cpu/cpufreq/pegasusq/ignore_nice_load;
+echo "1" > /sys/devices/system/cpu/cpufreq/pegasusq/io_is_busy;
+echo "0" > /sys/devices/system/cpu/cpufreq/pegasusq/max_cpu_lock;
+echo "0" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_lock;
