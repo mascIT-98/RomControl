@@ -1,0 +1,4 @@
+#!/system/bin/sh
+
+echo 0 > /sys/module/fbearlysuspend/parameters/fbdelay
+echo 0 > /sys/module/fbearlysuspend/parameters/fbdelay_ms

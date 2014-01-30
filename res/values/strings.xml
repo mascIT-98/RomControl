@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RomControl</string>
+    <string name="changelog">Changelog 18/01/2014</string>
+    <string name="crt_animation">CRT anim</string>
+    <string name="ok">OK</string>
+    <string name="statusbar_scroll">Quickpanel auto Scrolling</string>
+    <string name="log">Logger</string>
+    <string name="fsync">Fsync</string>
+    <string name="statusbar_scroll_sum">Automatically scrolls quickpanel toggle upon expanding statusbar</string>
+</resources>
