@@ -2,33 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hasta.romcontrol"
     android:versionCode="1"
-    android:versionName="1.1" >
+    android:versionName="1.1">
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="19"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo" >
+        android:theme="@android:style/Theme.Holo">
         <activity
             android:name="com.hasta.romcontrol.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"  >
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>    
         <activity android:name="com.hasta.romcontrol.Changelog"
-            android:label="@string/changelog">
-            
+            android:label="@string/changelog">            
+        </activity>
+       <activity android:name="com.hasta.romcontrol.Expl"
+            android:label="@string/about">            
         </activity>
         </application>
 

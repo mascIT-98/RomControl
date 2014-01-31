@@ -23,32 +23,37 @@ public final class R {
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int paper=0x7f020001;
-        public static final int white=0x7f020002;
     }
     public static final class id {
-        public static final int about=0x7f090001;
+        public static final int about=0x7f090002;
+        public static final int expl=0x7f090001;
         public static final int log=0x7f090000;
     }
     public static final class layout {
         public static final int changelog=0x7f030000;
+        public static final int expl=0x7f030001;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
     }
     public static final class string {
-        public static final int about=0x7f060005;
+        public static final int about=0x7f060007;
         public static final int app_name=0x7f060000;
-        public static final int bat_tweaks=0x7f060007;
+        public static final int bat_tweaks=0x7f06000a;
         public static final int changelog=0x7f060001;
-        public static final int cpu_tweaks=0x7f060006;
+        public static final int cpu_tweaks=0x7f060009;
         public static final int crt_animation=0x7f060002;
-        public static final int fsync=0x7f060004;
+        public static final int expl=0x7f06000f;
+        public static final int fsync=0x7f060006;
+        public static final int gps=0x7f060004;
         public static final int log=0x7f060003;
-        public static final int log1=0x7f06000c;
-        public static final int net_tweaks=0x7f06000a;
-        public static final int perf_tweaks=0x7f060008;
-        public static final int sd_tweaks=0x7f060009;
-        public static final int vac_tweaks=0x7f06000b;
+        public static final int log1=0x7f060010;
+        public static final int net_tweaks=0x7f06000d;
+        public static final int perf_tweaks=0x7f06000b;
+        public static final int sd_tweaks=0x7f06000c;
+        public static final int thing=0x7f060008;
+        public static final int tweaks=0x7f060005;
+        public static final int vac_tweaks=0x7f06000e;
     }
     public static final class style {
         /** 

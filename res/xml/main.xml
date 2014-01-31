@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-        <CheckBoxPreference android:title="@string/crt_animation" android:key="crt_toggle" android:summaryOn= "CRT enabled" android:summaryOff="CRT disabled"/>
+    <PreferenceScreen android:title="@string/tweaks">   
         <CheckBoxPreference android:title="@string/fsync" android:key="fsync_toggle" android:summaryOn="Fsync disabled" android:summaryOff="Fsync enabled"/>
         <CheckBoxPreference android:title="@string/cpu_tweaks" android:key="cputweaks_toggle" android:summaryOn="CPU tweaks enabled" android:summaryOff="CPU tweaks disabled"/>
         <CheckBoxPreference android:title="@string/perf_tweaks" android:key="perftweaks_toggle" android:summaryOn="Performance tweaks enabled" android:summaryOff="Performance tweaks disabled"/>
@@ -8,4 +8,7 @@
         <CheckBoxPreference android:title="@string/vac_tweaks" android:key="vac_toggle" android:summaryOn="Vacuuming enabled" android:summaryOff="vacuuming disabled"/>
         <CheckBoxPreference android:title="@string/sd_tweaks" android:key="sdtweaks_toggle" android:summaryOn="SD tweaks enabled" android:summaryOff="SD tweaks disabled"/>
         <CheckBoxPreference android:title="@string/bat_tweaks" android:key="battweaks_toggle" android:summaryOn="Battery tweaks enabled" android:summaryOff="Battery tweaks disabled"/>
+        <CheckBoxPreference android:title="@string/gps" android:key="gps_toggle" android:summaryOn="GPS tweaks enabled" android:summaryOff="GPS tweaks disabled"/>
+    </PreferenceScreen>
+    <CheckBoxPreference android:title="@string/crt_animation" android:key="crt_toggle" android:summaryOn= "CRT enabled" android:summaryOff="CRT disabled"/>
 </PreferenceScreen>

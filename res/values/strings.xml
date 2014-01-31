@@ -5,13 +5,17 @@
     <string name="changelog">Changelogs</string>
     <string name="crt_animation">CRT anim</string>
     <string name="log">Logger</string>
+    <string name="gps">GPS tweaks</string>
+    <string name="tweaks">INIT.D TWEAKS</string>
     <string name="fsync">Fsync</string>
     <string name="about">About</string>
+    <string name="thing">-FSYNC is an android feature that allows to write continually flush of data to avoid data lose when the phone shoutdowns suddenly. FSYNC on prevents data lose, but slows down the system, FSYNC off speeds up the system. I kept this disabled because the system is stable. \n\n-CPU TWEAKS: I have set as default governor pegasusq and as default io sio. There are also many other tweaks, that edit the cpu config to te better. \n\n-PERFORMANCE TWEAKS: I have added many changes to the lmk(low memory killer, how the android system kills apps), kernel parameters, dalvik parameters to enhance to the max the performance. \n\n-BATTERY TWEAKS: charging values edited, reduced charging tension from 600 to 400; Deepest deep-sleep state set to 4; other tweaks;\n\n-VACUUM: Vac and reindex data partition to keep the system always clean, at every boot you will notice an Android upgrade, don t worry about this, it s the script that does its job.\n\n-SD TWEAKS: Increase read ahead speed from 128 to 2048, it will increase write and read operations.\n\nNET TWEAKS: Edited most of default configurations, no more redirections, faster browsing;</string>
     <string name="cpu_tweaks">CPU tweaks</string>
     <string name="bat_tweaks">Battery tweaks</string>
     <string name="perf_tweaks">Performance tweaks</string>
     <string name="sd_tweaks">SD tweaks</string>
     <string name="net_tweaks">Internet tweaks</string>
     <string name="vac_tweaks">Vacuuming</string>
+    <string name="expl">Tweaks explaining</string>
     <string name="log1">CHANGELOG 30/01/2014 \n\n-CRT-OFF effect \n-white icons \n-centered clock \n-change track by vol buttons \n-added many tweaks \n-performance improved"</string>
 </resources>

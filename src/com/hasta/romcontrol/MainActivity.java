@@ -10,7 +10,6 @@ package com.hasta.romcontrol;
 
 
 import java.io.File;
-
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -34,6 +33,7 @@ public class MainActivity extends Activity {
     private static final String FBDELAY = "/sys/module/fbearlysuspend/parameters/fbdelay";
     private static final String FBDELAY_MS = "/sys/module/fbearlysuspend/parameters/fbdelay_ms";
     private static final String INITD = "/system/etc/init.d";
+    private static final String ETC = "/system/etc";
     private static final String FSYNCODE = "/sys/kernel/fsync/mode";
     private static final String FSYNC = "fsyn";
     private static final String TWEAKS = "tweaks";
@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
     private static final String TWEAKS4 = "tweaks4";
     private static final String TWEAKS5 = "tweaks5";
     private static final String TWEAKS6 = "tweaks6";
-    
+    private static final String TWEAKS7 = "tweaks7";
     private static ContentResolver cr;
 
    
@@ -64,9 +64,13 @@ public class MainActivity extends Activity {
             startActivity(intent);
            
             return true;
+        case R.id.expl:
+        	Intent intentt =new Intent(getBaseContext(), Expl.class);
+        	startActivity(intentt);
+        	return true;
         case R.id.about:
-        	Toast.makeText(getApplicationContext(), 
-                    "By hastalafiesta, check out my github!!!", Toast.LENGTH_LONG).show();
+        	Toast.makeText(getApplicationContext(), "By Hastalafiesta, for any troubles ask me on xda!",
+        			   Toast.LENGTH_LONG).show();
         	return true;
         default:
             return super.onOptionsItemSelected(item);}
@@ -102,6 +106,7 @@ public class MainActivity extends Activity {
                     onSharedPreferenceChanged(sharedPref,"vac_toggle");
                     onSharedPreferenceChanged(sharedPref,"sdtweaks_toggle");
                     onSharedPreferenceChanged(sharedPref,"nettweaks_toggle");
+                    onSharedPreferenceChanged(sharedPref,"gps_toggle");
         }
 
 		@Override
@@ -115,6 +120,7 @@ public class MainActivity extends Activity {
 			if(key.equals("sdtweaks_toggle")) handleSD();
 			if(key.equals("vac_toggle")) handleVAC();
 			if(key.equals("nettweaks_toggle")) handleNET();
+			if(key.equals("gps_toggle")) handleGPS();
 		}
 		
 		public void handleCRT() {
@@ -286,6 +292,90 @@ public class MainActivity extends Activity {
 					putInt(TWEAKS4, 0);
 		        }
 		}
+	        public void handleVAC(){
+				final CheckBoxPreference vac_toggle = (CheckBoxPreference) findPreference("vac_toggle");
+		        final File e = new File(INITD);
+		        final int tw5 = getInt(TWEAKS5, 0);
+		        vac_toggle.setChecked(tw5 != 0);
+		        vac_toggle.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+		                public boolean onPreferenceClick(Preference preference) {
+		                    if (vac_toggle.isChecked()) {
+		                        putInt(TWEAKS5, 1);
+		                        Utils.mountSystemRW();
+		                        Utils.copyAssets("vac",INITD,777,getActivity().getApplicationContext());
+		                        ShowToast("VAC enabled, changes will be applied after reboot!");
+		                    } else {
+		                    	putInt(TWEAKS5, 0);
+		                        Utils.mountSystemRW();
+		                        new SU().execute("rm /system/etc/init.d/vac");
+		                        ShowToast("VACUUMING removed!");
+		                    }
+		                    return false;
+		                }
+		        });
+		        if(!e.exists()) {
+		            vac_toggle.setSummary("Unsupported kernel");
+		            vac_toggle.setEnabled(false);
+					putInt(TWEAKS5, 0);
+		        }
+		}
+	        public void handleNET(){
+				final CheckBoxPreference nettweaks_toggle = (CheckBoxPreference) findPreference("nettweaks_toggle");
+		        final File f = new File(INITD);
+		        final int tw6 = getInt(TWEAKS6, 0);
+		        nettweaks_toggle.setChecked(tw6 != 0);
+		        nettweaks_toggle.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+		                public boolean onPreferenceClick(Preference preference) {
+		                    if (nettweaks_toggle.isChecked()) {
+		                        putInt(TWEAKS6, 1);
+		                        Utils.mountSystemRW();
+		                        Utils.copyAssets("net",INITD,777,getActivity().getApplicationContext());
+		                        ShowToast("Net tweaks enabled, changes will be applied after reboot!");
+		                    } else {
+		                    	putInt(TWEAKS6, 0);
+		                        Utils.mountSystemRW();
+		                        new SU().execute("rm /system/etc/init.d/net");
+		                        ShowToast("NET tweaks removed!");
+		                    }
+		                    return false;
+		                }
+		        });
+		        if(!f.exists()) {
+		            nettweaks_toggle.setSummary("Unsupported kernel");
+		            nettweaks_toggle.setEnabled(false);
+					putInt(TWEAKS6, 0);
+		        }
+		}
+	        public void handleGPS(){
+				final CheckBoxPreference gps_toggle = (CheckBoxPreference) findPreference("gps_toggle");
+		        final File g = new File(ETC);
+		        final int tw7 = getInt(TWEAKS7, 0);
+		        gps_toggle.setChecked(tw7 != 0);
+		        gps_toggle.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+		                public boolean onPreferenceClick(Preference preference) {
+		                    if (gps_toggle.isChecked()) {
+		                        putInt(TWEAKS7, 1);
+		                        Utils.mountSystemRW();
+		                        Utils.copyAssets("gps.conf",ETC,644,getActivity().getApplicationContext());
+		                        ShowToast("GPS tweaks enabled, changes will be applied after reboot!");
+		                    } else {
+		                    	putInt(TWEAKS7, 0);
+		                        Utils.mountSystemRW();
+		                        Utils.copyAssets("gps.conf_orig",ETC,644,getActivity().getApplicationContext());
+		                        new SU().execute("cp -f /system/etc/gps.conf_orig /system/etc/gps.conf","rm /system/etc/gps.conf_orig");
+		                        ShowToast("GPS tweaks removed!");
+		                    }
+		                    return false;
+		                }
+		        });
+		        if(!g.exists()) {
+		            gps_toggle.setSummary("Unsupported kernel");
+		            gps_toggle.setEnabled(false);
+					putInt(TWEAKS7, 0);
+		        }
+		}
+
+	        
 		 public void ShowToast(String msg) {
 		        Toast.makeText(getActivity().getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
 		    }
